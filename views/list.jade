@@ -1,0 +1,9 @@
+extends layout
+block content 
+	h3= page_title
+	ul
+		each val in arrayJobs	
+			- var location = val.location;
+			- var title = val.title;
+			li= title + ' in ' +location
+

@@ -1,0 +1,30 @@
+
+a Job 
+	can be created
+	has properties
+		a title
+		an ID
+		other properties can be addeed ad hoc
+	has a status
+		open 
+		closed
+		pending
+	has a posting status
+		can be posted
+		can be unposted
+	has people responsible (people are users)
+	has categories
+		can be for exaple an organization
+		users can have rights over categories,
+			watch
+			watch and edit
+			None	
+
+users
+	name
+	email
+		add hoc fields
+	rights over categories
+
+
+

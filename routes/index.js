@@ -2,10 +2,17 @@ var express = require('express');
 var router = express.Router();
 
 var job = require('../modules/job')
+
+
+
 var jobs= [];
-jobs.push(job({title:'IT Support',location:'Lisboa',description:'descr...',company:'google'}));
-jobs.push(job({title:'Engineer',location:'Braga',description:'outra desc.',company:'yahoo'}));
-jobs.push(job({title:'Doctor',location:'Porto',description:'outra desc.',company:'yahoo'}));
+jobs.push(job({title:'IT Support',status:'open',posted:'false', categories:['Porto']}));
+jobs.push(job({title:'Engineer',status:'closed',posted:'true', categories:['Edp']}));
+jobs.push(job({title:'Coach',status:'open',posted:'true',categories:['Benfica']}));
+
+
+
+
 
 
 router.get('/', function(req, res) {
@@ -13,9 +20,11 @@ router.get('/', function(req, res) {
 });
 
 router.get('/job/:n', function(req, res) {
-  res.json(jobs[req.param('n')]);
-  // res.json(jobs[1]);
+  	(jobs[req.param('n')]) ? res.json(jobs[req.param('n')].getJob()) : res.json(void(0));
+
+  	
 });
+
 
 router.get('/list', function(req, res) {
   res.render('list',{page_title: 'All Jobs', arrayJobs: jobs})

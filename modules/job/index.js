@@ -24,13 +24,12 @@ this.getJob= function(){
 }
 
 
-
 this.setId=function(){  //may be done by DB in the future....
 	Job.id = (Job.id || 0) + 1;
 	dados['id'] = Job.id;
 }
 
- this.setCategories=function(jobData){  
+this.setCategories=function(jobData){  
 	 //update categories in module
 }
 
@@ -46,14 +45,35 @@ this.setStatus = function(title){
 
 }
 
-module.exports = function(jobData){
+
+//List of all categories
+function Category() {  //singleton, each instance referes to the very same object
+
+  if ( arguments.callee.single )
+    return arguments.callee.single;
+  arguments.callee.single = this;
+
+  this.Foo = function() {
+    // ...
+  }
+
+  var categories = [];
+
+  var addNew() = function(){
+
+	};
+}
+
+
+
+exports.createJob = function(jobData){
 	var instanciaJob = new Job();	
 	instanciaJob.defineJobData(jobData);
 	instanciaJob.setId();
 	//console.log(instanciaJob.getCategories());
 	return instanciaJob;
-
 }
+
 
 
 

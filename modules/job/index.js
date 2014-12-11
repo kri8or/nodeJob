@@ -49,7 +49,10 @@ exports.createJob = function(jobData){
 	var instanciaJob = new Job();	
 	var categoriesInstance = new Category();
 	instanciaJob.defineJobData(jobData);
-	categoriesInstance.addNew(jobData['categories']);
+	if (jobData['categories']!== undefined){
+		//console.log('lol')
+		categoriesInstance.addNew(jobData['categories']);
+	}
 	instanciaJob.setId();
 	return instanciaJob;
 }

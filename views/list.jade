@@ -1,9 +1,17 @@
 extends layout
 block content 
+	block contentAdd
+
 	h3= page_title
 	ul
 		each val in arrayJobs	
-			- var location = val.location;
-			- var title = val.title;
-			li= title + ' in ' +location
+			- var title = val.getJob().title;
+			- var posted = (val.getJob().posted ? 'posted':'unposted');
 
+			//insert here if category does not exist.....
+			- var ctgs = val.getJob().categories.toString();
+			li= title
+				ul
+					li= posted
+					li= ctgs
+	

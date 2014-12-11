@@ -1,0 +1,10 @@
+extends list
+block contentAdd
+	h4= subTitle
+	h5= added
+	div
+		form(method="POST", action="/add")
+			input(type="hidden", name="_method", value="PUT")
+			p Title
+				input(type="text", name="title")
+				input(type="submit", value="Add Job")

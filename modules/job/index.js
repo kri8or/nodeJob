@@ -29,7 +29,7 @@ this.setId=function(){  //may be done by DB in the future....
 	dados['id'] = Job.id;
 }
 
-this.setCategories=function(jobData){  
+this.updateCategories=function(jobData){  
 	 //update categories in module
 }
 
@@ -45,6 +45,17 @@ this.setStatus = function(title){
 
 }
 
+exports.createJob = function(jobData){
+	var instanciaJob = new Job();	
+	var categoriesInstance = new Category();
+	instanciaJob.defineJobData(jobData);
+	categoriesInstance.addNew(jobData['categories']);
+	instanciaJob.setId();
+	return instanciaJob;
+}
+
+
+//************************* categories ***********************
 
 //List of all categories
 function Category() {  //singleton, each instance referes to the very same object
@@ -53,29 +64,30 @@ function Category() {  //singleton, each instance referes to the very same objec
     return arguments.callee.single;
   arguments.callee.single = this;
 
-  this.Foo = function() {
-    // ...
-  }
-
   var categories = [];
 
-  var addNew() = function(){
+  this.addNew = function(categoryArray){
+  	categoryArray.forEach(function(value){
+  		if (categories.indexOf(value) === -1){
+  		 categories.push(value)
+  		} 
+  	})
+  };
+  
 
-	};
+  this.getAllCategories = function(){
+  	return categories;
+  };
 }
 
 
-
-exports.createJob = function(jobData){
-	var instanciaJob = new Job();	
-	instanciaJob.defineJobData(jobData);
-	instanciaJob.setId();
-	//console.log(instanciaJob.getCategories());
-	return instanciaJob;
+exports.createCategory = function(categoryArray){
+  var categoriesInstance = new Category();
+  categoriesInstance.addNew(categoryArray);
+  return categoriesInstance;
 }
 
-
-
+//************************* end categories ***********************
 
 
 

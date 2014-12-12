@@ -20,7 +20,7 @@ jobs.push(job.createJob({title:'Coach2'}));
 
 
 router.post('/add',function(req,res){
-	jobs.push(job.createJob({title:req.param('title'),status:'open',posted:false, categories:['Porto','outra']}));
+	jobs.push(job.createJob({title:req.param('title')}));
 	res.render('addJob',{page_title: 'All Jobs',arrayJobs: jobs,subTitle:'Add new Job', added:"job was added"})
 });
 

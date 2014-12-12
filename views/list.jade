@@ -1,17 +1,16 @@
 extends layout
 block content 
 	block contentAdd
+	div.col-sm-12
+		h3= page_title
+		ul
+			each val in arrayJobs	
+				- var title = val.getJob().title;
+				- var posted = (val.getJob().posted ? 'posted':'unposted');
 
-	h3= page_title
-	ul
-		each val in arrayJobs	
-			- var title = val.getJob().title;
-			- var posted = (val.getJob().posted ? 'posted':'unposted');
-
-			//insert here if category does not exist.....
-			- var ctgs = val.getJob().categories.toString();
-			li= title
-				ul
-					li= posted
-					li= ctgs
-	
+				- var ctgs = (val.getJob().categories ? val.getJob().categories.toString() : 'No categories defined');
+				li= title
+					ul
+						li= posted
+						li= ctgs
+		

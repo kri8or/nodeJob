@@ -2,9 +2,26 @@ extends list
 block contentAdd
 	h4= subTitle
 	h5= added
-	div
+	div.col-sm-4
 		form(method="POST", action="/add")
-			input(type="hidden", name="_method", value="PUT")
-			p Title
-				input(type="text", name="title")
+			.form-group
+				label Title
+				input(type="text", class="form-control") 
+				label Title
+				input(type="text", class="form-control") 
+				label Title
+				input(type="text", class="form-control") 
+				label Title
+				input(type="text", class="form-control") 
 				input(type="submit", value="Add Job")
+				
+	
+
+
+
+
+
+
+
+
+

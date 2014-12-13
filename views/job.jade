@@ -1,0 +1,17 @@
+extends layout
+block content 
+	h3= page_title
+	br
+	h4= title
+	h4= status
+	br
+	div.col-sm-4
+		form(method="POST", action="/edit")
+			input(type="hidden", name="_method", value="PUT")
+			input(type="submit", value="Edit")
+		form(method="POST")
+			input(type="hidden", name="_method", value="DELETE")
+			input(type="submit", value="Delete")
+
+
+

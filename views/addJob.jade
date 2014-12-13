@@ -5,21 +5,17 @@ block contentAdd
 	div.col-sm-4
 		form(method="POST", action="/add")
 			.form-group
+				input(type="hidden", name="_method", value="PUT")
 				label Title
-				input(type="text", class="form-control") 
-				label Title
-				input(type="text", class="form-control") 
-				label Title
-				input(type="text", class="form-control") 
-				label Title
-				input(type="text", class="form-control") 
+				input(type="text", class="form-control", name="title") 
+				label Posted
+				input(type="text", class="form-control", name="posted") 
+				label Status
+				input(type="text", class="form-control", name="status") 
+				label Categories
+				input(type="text", class="form-control", name="ctgs") 
 				input(type="submit", value="Add Job")
 				
-	
-
-
-
-
 
 
 

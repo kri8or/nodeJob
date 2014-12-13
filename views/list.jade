@@ -5,12 +5,20 @@ block content
 		h3= page_title
 		ul
 			each val in arrayJobs	
+				
 				- var title = val.getJob().title;
 				- var posted = (val.getJob().posted ? 'posted':'unposted');
 
 				- var ctgs = (val.getJob().categories ? val.getJob().categories.toString() : 'No categories defined');
-				li= title
+				li
+					- var url = '/job/'+iteracao;
+					a(href=url)= title
 					ul
 						li= posted
 						li= ctgs
+
+				- iteracao++
 		
+
+
+ 

@@ -15,9 +15,9 @@ jobs.push(job.createJob({title:'Coach',status:'open',posted:true,categories:['Be
 jobs.push(job.createJob({title:'Coach2'}));
 
 router.put('/add',function(req,res){
-	console.log('lol');
-	jobs.push(job.createJob({title:req.param('title'), status:req.param('status'), posted:req.param('posted')}));
-	res.render('addJob',{page_title: 'All Jobs',arrayJobs: jobs,subTitle:'Add new Job', added:"job was added"})
+  console.log('lol');
+  jobs.push(job.createJob({title:req.param('title'), status:req.param('status'), posted:req.param('posted')}));
+  res.render('addJob',{page_title: 'All Jobs',arrayJobs: jobs,subTitle:'Add new Job', added:"job was added"})
 
 });
 
@@ -30,17 +30,17 @@ router.get('/add', function(req, res) {
 });
 
 router.delete('/job/:n', function(req, res) {
-	jobs.splice(req.param('n'),1);
-	
+  jobs.splice(req.param('n'),1);
+  
    // res.render('list',{page_title: 'All Jobs', arrayJobs: jobs})
     res.redirect('../list');
 });
 
 
 router.get('/job/:n', function(req, res) {
-  	//(jobs[req.param('n')]) ? res.json(jobs[req.param('n')].getJob()) : res.json(void(0));
-  	var j = jobs[req.param('n')].getJob();
-  	res.render('job',{page_title: 'View job', title: j.title, status: j.status})
+    //(jobs[req.param('n')]) ? res.json(jobs[req.param('n')].getJob()) : res.json(void(0));
+    var j = jobs[req.param('n')].getJob();
+    res.render('job',{page_title: 'View job', title: j.title, status: j.status})
 });
 
 

@@ -3,13 +3,15 @@ html
 	head
 		title= page_title
 		link(rel="stylesheet", href="http://localhost:3000/css/bootstrap.min.css")
+		link(rel="stylesheet", href="http://localhost:3000/css/login.css")
 	body
+		link(href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', rel='stylesheet')
 		div.container
 			div.row.clearfix
 				div.col-md-12.column
-					div.jumbotron
+					div.col-md-10.jumbotron
 						h1 JobBoard
-						p jobs for everyone	
+						p jobs for everyone
+					block login
 					block content
-		
-		
+

@@ -1,0 +1,19 @@
+extends layout
+block login
+	div.col-md-2.form-login
+		form(method="POST", action="/")
+			input(type="hidden", name="_method", value="PUT")
+			h4 Welcome!
+			input#userName.form-control.input-sm.chat-input(type='text', placeholder='username', name='username')
+			br
+			input#userPassword.form-control.input-sm.chat-input(type='password', placeholder='password', name='password')
+			br
+			div.wrapper
+			input.btn.btn-primary.btn-md(type="submit", value="Login")
+			br
+			span.group-btn
+				a.btn.btn-danger.btn-md(href='#')
+					| with icon (later) 
+					i.fa.fa-sign-in
+		block content
+					

@@ -16,14 +16,20 @@ jobs.push(job.createJob({title:'Coach',status:'open',posted:true,categories:['Be
 jobs.push(job.createJob({title:'Coach2'}));
 
 router.put('/add',function(req,res){
-  console.log('lol');
   jobs.push(job.createJob({title:req.param('title'), status:req.param('status'), posted:req.param('posted')}));
   res.render('addJob',{page_title: 'All Jobs',arrayJobs: jobs,subTitle:'Add new Job', added:"job was added"})
-
 });
 
-router.get('/', function(req, res) {
+
+router.put('/',function(req,res){
+  console.log(req);
   res.render('layout');
+});
+
+
+router.get('/', function(req, res) {
+  //res.render('layout');
+  res.render('login');
 });
 
 router.get('/add', function(req, res) {
